@@ -37,11 +37,12 @@ const t = getDictionary(locale);
       </div>
     </div>
 
-    <div class="relative mt-10 aspect-[4/3] w-full overflow-hidden">
+    {/* Contenedor optimizado para móvil con plano más abierto */}
+    <div class="relative mt-10 aspect-[4/5] w-full overflow-hidden">
       <img
         src={company.founder.photo}
         alt={company.founder.name}
-        class="h-full w-full object-cover object-[60%_15%]"
+        class="h-full w-full object-cover object-[50%_15%]"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/10 to-transparent"></div>
       <div class="absolute inset-x-4 bottom-4 inline-flex items-center rounded-full border border-white/10 bg-ink-900/55 px-4 py-2 backdrop-blur-md">
