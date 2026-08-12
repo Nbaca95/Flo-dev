@@ -1,0 +1,123 @@
+---
+import { getDictionary } from '../../i18n/utils';
+import { localePath, type Locale } from '../../i18n/config';
+import { company } from '../../data/company';
+import Icon from '../ui/Icon.astro';
+import SocialIcon from '../ui/SocialIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const year = new Date().getFullYear();
+
+const navItems = [
+  { label: t.nav.home, href: localePath(locale, '') },
+  { label: t.nav.services, href: localePath(locale, locale === 'en' ? 'services' : 'servicios') },
+  { label: t.nav.solutions, href: localePath(locale, locale === 'en' ? 'solutions' : 'soluciones') },
+  { label: t.nav.about, href: localePath(locale, locale === 'en' ? 'about' : 'sobre-flo-de') },
+  { label: t.nav.projects, href: localePath(locale, locale === 'en' ? 'projects' : 'proyectos') },
+  { label: t.nav.blog, href: localePath(locale, 'blog') },
+  { label: t.nav.contact, href: localePath(locale, locale === 'en' ? 'contact' : 'contacto') },
+];
+
+const mainServices = [
+  t.valueProposition.pillars[0]?.title,
+  'Desarrollo Web',
+  'Automatización',
+  'Consultoría',
+  'Soporte Técnico',
+];
+
+const socialLinks = [
+  { name: 'Instagram', url: company.social.instagram, label: 'Instagram' },
+  { name: 'Facebook', url: company.social.facebook, label: 'Facebook' },
+  { name: 'X', url: company.social.twitter, label: 'X (Twitter)' },
+  { name: 'TikTok', url: company.social.tiktok, label: 'TikTok' },
+  { name: 'LinkedIn', url: company.social.linkedin, label: 'LinkedIn' },
+].filter((s) => s.url);
+---
+
+<footer class="border-t border-paper-border bg-paper-50 dark:border-ink-border dark:bg-ink-800">
+  <div class="container-flo grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="sm:col-span-2 lg:col-span-1">
+      <a href={localePath(locale, '')} class="group inline-flex items-center gap-2">
+        <img
+          src={company.logos.dark}
+          alt={company.name}
+          class="hidden h-14 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:block sm:h-16"
+        />
+        <img
+          src={company.logos.light}
+          alt={company.name}
+          class="block h-14 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:hidden sm:h-16"
+        />
+      </a>
+      <p class="mt-4 max-w-xs text-sm leading-relaxed text-ink-700/70 dark:text-paper-200/60">
+        {t.footer.tagline}
+      </p>
+      {socialLinks.length > 0 && (
+        <div class="mt-5 flex items-center gap-2">
+          {socialLinks.map((social) => (
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              title={social.label}
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-paper-border text-ink-700/70 transition-colors hover:border-accent-500 hover:text-accent-600 dark:border-ink-border dark:text-paper-200/60 dark:hover:border-accent-400 dark:hover:text-accent-400"
+            >
+              <SocialIcon name={social.name} class="h-4 w-4" />
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold text-ink-900 dark:text-paper-100">{t.footer.navTitle}</h3>
+      <ul class="mt-4 space-y-2.5">
+        {navItems.map((item) => (
+          <li>
+            <a href={item.href} class="text-sm text-ink-700/70 hover:text-accent-600 dark:text-paper-200/60 dark:hover:text-accent-400">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold text-ink-900 dark:text-paper-100">{t.footer.servicesTitle}</h3>
+      <ul class="mt-4 space-y-2.5">
+        {mainServices.map((service) => (
+          <li class="text-sm text-ink-700/70 dark:text-paper-200/60">{service}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold text-ink-900 dark:text-paper-100">{t.footer.contactTitle}</h3>
+      <ul class="mt-4 space-y-3">
+        <li class="flex items-center gap-2 text-sm text-ink-700/70 dark:text-paper-200/60">
+          <Icon name="Mail" class="h-4 w-4 shrink-0" />
+          <a href={`mailto:${company.contact.email}`} class="hover:text-accent-600 dark:hover:text-accent-400">
+            {company.contact.email}
+          </a>
+        </li>
+        {/*
+        <li class="flex items-center gap-2 text-sm text-ink-700/70 dark:text-paper-200/60">
+          <Icon name="Globe" class="h-4 w-4 shrink-0" />
+          <span>{company.domain}</span>
+        </li> */} 
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-paper-border py-6 dark:border-ink-border">
+    <div class="container-flo flex flex-col items-center justify-between gap-3 text-xs text-ink-700/60 sm:flex-row dark:text-paper-200/50">
+      <p>© {year} {company.name}. {t.footer.rights}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,128 @@
+---
+import { getDictionary } from '../../i18n/utils';
+import { localePath, type Locale } from '../../i18n/config';
+import { company } from '../../data/company';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import Icon from '../ui/Icon.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  locale: Locale;
+  route: string;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+
+const navItems = [
+  { label: t.nav.home, href: localePath(locale, '') },
+  { label: t.nav.services, href: localePath(locale, locale === 'en' ? 'services' : 'servicios') },
+  { label: t.nav.solutions, href: localePath(locale, locale === 'en' ? 'solutions' : 'soluciones') },
+  { label: t.nav.about, href: localePath(locale, locale === 'en' ? 'about' : 'sobre-flo-de') },
+  { label: t.nav.projects, href: localePath(locale, locale === 'en' ? 'projects' : 'proyectos') },
+  { label: t.nav.blog, href: localePath(locale, 'blog') },
+  { label: t.nav.contact, href: localePath(locale, locale === 'en' ? 'contact' : 'contacto') },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-transparent">
+  <div
+    id="site-header-inner"
+    class="border-b border-paper-border/70 bg-paper-100/80 backdrop-blur-md transition-colors dark:border-ink-border dark:bg-ink-900/80"
+  >
+    <nav class="container-flo flex h-18 items-center justify-between" aria-label="Principal">
+      <a href={localePath(locale, '')} class="group flex items-center gap-2" aria-label={company.name}>
+        <img
+          src={company.logos.dark}
+          alt={company.name}
+          class="hidden h-12 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:block sm:h-14"
+        />
+        <img
+          src={company.logos.light}
+          alt={company.name}
+          class="block h-12 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:hidden sm:h-14"
+        />
+      </a>
+
+      <div class="hidden items-center gap-1 lg:flex">
+        {navItems.map((item) => {
+          const isActive = item.href === currentPath || (item.href !== '/' && currentPath.startsWith(item.href) && item.href.length > 1);
+          return (
+            <a
+              href={item.href}
+              class={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                isActive
+                  ? 'text-accent-600 dark:text-accent-400'
+                  : 'text-ink-700 hover:text-ink-900 dark:text-paper-200/80 dark:hover:text-paper-100'
+              }`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </div>
+
+      <div class="hidden items-center gap-2 lg:flex">
+        <LanguageSwitcher locale={locale} />
+        <ThemeToggle locale={locale} />
+        <Button href={localePath(locale, locale === 'en' ? 'contact' : 'contacto')} size="sm">
+          {t.nav.cta}
+        </Button>
+      </div>
+
+      <div class="flex items-center gap-1 lg:hidden">
+        <ThemeToggle locale={locale} />
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-full text-ink-900 hover:bg-paper-200 dark:text-paper-100 dark:hover:bg-ink-700"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label={t.nav.openMenu}
+        >
+          <Icon name="Menu" class="h-5 w-5" id="mobile-menu-icon-open" />
+          <Icon name="X" class="hidden h-5 w-5" id="mobile-menu-icon-close" />
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden border-b border-paper-border bg-paper-50 lg:hidden dark:border-ink-border dark:bg-ink-800"
+  >
+    <div class="container-flo flex flex-col gap-1 py-4">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="rounded-lg px-3 py-2.5 text-base font-medium text-ink-900 hover:bg-paper-200 dark:text-paper-100 dark:hover:bg-ink-700"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="mt-2 flex items-center justify-between border-t border-paper-border px-3 pt-4 dark:border-ink-border">
+        <LanguageSwitcher locale={locale} />
+        <Button href={localePath(locale, locale === 'en' ? 'contact' : 'contacto')} size="sm">
+          {t.nav.cta}
+        </Button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+
+  menuButton?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    menuButton.setAttribute('aria-expanded', String(!!isHidden));
+  });
+</script>

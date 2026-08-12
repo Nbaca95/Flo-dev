@@ -1,0 +1,21 @@
+---
+interface Props {
+  problem: string;
+  solution: string;
+  description: string;
+  solutionLabel: string;
+}
+const { problem, solution, description, solutionLabel } = Astro.props;
+---
+
+<div class="rounded-2xl border border-paper-border bg-paper-50 p-7 dark:border-ink-border dark:bg-ink-800">
+  <p class="text-sm font-medium text-ink-700/60 dark:text-paper-200/50">{problem}</p>
+  <div class="mt-4 flex items-center gap-2">
+    <span class="h-px w-6 bg-flo-gradient"></span>
+    <span class="font-mono text-[11px] uppercase tracking-wider text-accent-600 dark:text-accent-400">
+      {solutionLabel}
+    </span>
+  </div>
+  <h3 class="mt-2 font-display text-lg font-semibold text-ink-900 dark:text-paper-100">{solution}</h3>
+  <p class="mt-2 text-sm leading-relaxed text-ink-700/75 dark:text-paper-200/65">{description}</p>
+</div>

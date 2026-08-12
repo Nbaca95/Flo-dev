@@ -1,0 +1,37 @@
+---
+import { getDictionary } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<button
+  type="button"
+  class="theme-toggle flex h-10 w-10 items-center justify-center rounded-full text-ink-900 transition-colors hover:bg-paper-200 dark:text-paper-100 dark:hover:bg-ink-700"
+  aria-label={t.themeToggle.switchToDark}
+  data-label-to-dark={t.themeToggle.switchToDark}
+  data-label-to-light={t.themeToggle.switchToLight}
+>
+  <Icon name="Sun" class="hidden h-5 w-5 dark:block" />
+  <Icon name="Moon" class="block h-5 w-5 dark:hidden" />
+</button>
+
+<script>
+  const STORAGE_KEY = 'flo-de-theme';
+
+  function initToggle(button: HTMLButtonElement) {
+    button.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
+      const label = isDark ? button.dataset.labelToLight : button.dataset.labelToDark;
+      if (label) button.setAttribute('aria-label', label);
+    });
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach(initToggle);
+</script>

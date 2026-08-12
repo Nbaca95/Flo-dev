@@ -1,0 +1,45 @@
+---
+import { company } from '../../data/company';
+import { getDictionary } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<div class="overflow-hidden rounded-2xl border border-paper-border bg-paper-50 dark:border-ink-border dark:bg-ink-800">
+  <div class="p-7">
+    <h3 class="font-display text-lg font-semibold text-ink-900 dark:text-paper-100">{t.contactPage.infoTitle}</h3>
+    <p class="mt-2 text-sm text-ink-700/70 dark:text-paper-200/60">{t.contactPage.infoText}</p>
+
+    <ul class="mt-6 space-y-4">
+      <li class="flex items-center gap-3">
+        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-flo-gradient-soft text-accent-600 dark:text-accent-400">
+          <Icon name="Mail" class="h-4 w-4" />
+        </span>
+        <a href={`mailto:${company.contact.email}`} class="text-sm text-ink-900 hover:text-accent-600 dark:text-paper-100 dark:hover:text-accent-400">
+          {company.contact.email}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  {company.contact.mapEmbedUrl && (
+    <div class="aspect-[4/3] w-full border-t border-paper-border dark:border-ink-border">
+      <iframe
+        src={company.contact.mapEmbedUrl}
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title={locale === 'en' ? `${company.name} location` : `Ubicación de ${company.name}`}
+      />
+    </div>
+  )}
+</div>

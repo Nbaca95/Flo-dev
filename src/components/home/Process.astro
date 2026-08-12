@@ -1,0 +1,30 @@
+---
+import { getDictionary } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<section class="border-t border-paper-border py-20 dark:border-ink-border sm:py-28">
+  <div class="container-flo">
+    <SectionHeading eyebrow={t.process.eyebrow} title={t.process.title} subtitle={t.process.subtitle} />
+
+    <ol class="mt-14 grid gap-6 lg:grid-cols-5">
+      {t.process.steps.map((step, i) => (
+        <li class="relative rounded-2xl border border-paper-border bg-paper-50 p-6 dark:border-ink-border dark:bg-ink-800">
+          <span class="font-mono text-sm text-accent-500/70 dark:text-accent-400/70">{step.number}</span>
+          <h3 class="mt-3 font-display text-base font-semibold text-ink-900 dark:text-paper-100">{step.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-700/70 dark:text-paper-200/60">{step.description}</p>
+          {i < t.process.steps.length - 1 && (
+            <span class="absolute right-[-14px] top-1/2 hidden h-px w-6 -translate-y-1/2 bg-flo-gradient lg:block" aria-hidden="true"></span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

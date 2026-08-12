@@ -1,0 +1,28 @@
+---
+import type { Locale } from '../../i18n/config';
+import type { Project } from '../../types';
+
+interface Props {
+  project: Project;
+  locale: Locale;
+  labels: { client: string; problem: string; solution: string; tech: string; results: string };
+}
+const { project, locale, labels } = Astro.props;
+---
+
+<article class="overflow-hidden rounded-2xl border border-paper-border bg-paper-50 dark:border-ink-border dark:bg-ink-800">
+  {project.image && <img src={project.image} alt={project.name} class="h-48 w-full object-cover" />}
+  <div class="p-6">
+    <span class="text-xs font-mono uppercase tracking-wider text-accent-600 dark:text-accent-400">{project.category}</span>
+    <h3 class="mt-2 font-display text-lg font-semibold text-ink-900 dark:text-paper-100">{project.name}</h3>
+    <p class="mt-1 text-sm text-ink-700/60 dark:text-paper-200/50">{labels.client}: {project.client}</p>
+    <p class="mt-4 text-sm text-ink-700/75 dark:text-paper-200/65"><strong>{labels.problem}:</strong> {project.problem[locale]}</p>
+    <p class="mt-2 text-sm text-ink-700/75 dark:text-paper-200/65"><strong>{labels.solution}:</strong> {project.solution[locale]}</p>
+    <p class="mt-2 text-sm text-ink-700/75 dark:text-paper-200/65"><strong>{labels.results}:</strong> {project.results[locale]}</p>
+    <div class="mt-4 flex flex-wrap gap-2">
+      {project.technologies.map((tech) => (
+        <span class="rounded-full bg-paper-200 px-2.5 py-1 text-xs text-ink-700/70 dark:bg-ink-700 dark:text-paper-200/60">{tech}</span>
+      ))}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flo-de.com/sitemap-index.xml

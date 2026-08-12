@@ -1,0 +1,234 @@
+import type { Dictionary } from '../types';
+
+export const es: Dictionary = {
+  meta: {
+    siteName: 'FLO-De',
+    defaultTitle: 'FLO-De — Diseño, tecnología y soluciones digitales',
+    defaultDescription:
+      'Diseñamos experiencias digitales, desarrollamos productos tecnológicos, automatizamos procesos y ofrecemos soluciones adaptadas a las necesidades de tu empresa.',
+  },
+  nav: {
+    home: 'Inicio',
+    services: 'Servicios',
+    solutions: 'Soluciones',
+    about: 'Sobre FLO-Dev',
+    projects: 'Proyectos',
+    blog: 'Blog',
+    contact: 'Contacto',
+    cta: 'Conversemos',
+    openMenu: 'Abrir menú',
+    closeMenu: 'Cerrar menú',
+  },
+  themeToggle: {
+    switchToLight: 'Cambiar a modo claro',
+    switchToDark: 'Cambiar a modo oscuro',
+  },
+  whatsapp: {
+    label: '¿Cómo puedo ayudarte?',
+    ariaLabel: 'Escribir por WhatsApp a FLO-De',
+    message: 'Hola, me gustaría obtener más información sobre los servicios de FLO-Dev.',
+  },
+  hero: {
+    eyebrow: 'SOLUCIONES DIGITALES · DISEÑO · TECNOLOGÍA',
+    title: 'Transformamos ideas en soluciones digitales que impulsan tu negocio.',
+    text: 'Diseñamos experiencias digitales, desarrollamos productos tecnológicos, automatizamos procesos y ofrecemos soluciones adaptadas a las necesidades de tu empresa.',
+    ctaPrimary: 'Conversemos',
+    ctaSecondary: 'Explorar servicios',
+    badge: 'Disponibles para nuevos proyectos',
+  },
+  valueProposition: {
+    title: 'Tecnología diseñada para resolver problemas reales.',
+    subtitle: 'Cuatro pilares que sostienen cada proyecto que construimos.',
+    pillars: [
+      {
+        title: 'Diseño estratégico',
+        description: 'Creamos experiencias digitales intuitivas y centradas en las personas.',
+      },
+      {
+        title: 'Desarrollo escalable',
+        description: 'Construimos soluciones modernas preparadas para crecer.',
+      },
+      {
+        title: 'Automatización inteligente',
+        description: 'Conectamos procesos y reducimos tareas repetitivas.',
+      },
+      {
+        title: 'Soporte tecnológico',
+        description: 'Acompañamos tu operación para que la tecnología trabaje a tu favor.',
+      },
+    ],
+  },
+  servicesPreview: {
+    eyebrow: 'LO QUE HACEMOS',
+    title: 'Servicios pensados para cada etapa de tu producto digital.',
+    subtitle: 'Desde el diseño de la interfaz hasta la automatización de tus procesos internos.',
+    viewAll: 'Ver todos los servicios',
+    learnMore: 'Conocer más',
+  },
+  process: {
+    eyebrow: 'CÓMO TRABAJAMOS',
+    title: 'Un proceso claro, de la idea a la operación.',
+    subtitle: 'Cada proyecto sigue el mismo método: entender antes de construir.',
+    steps: [
+      { number: '01', title: 'Descubrimos', description: 'Entendemos tu negocio, necesidades y objetivos.' },
+      { number: '02', title: 'Diseñamos', description: 'Creamos la estrategia y la experiencia digital.' },
+      { number: '03', title: 'Construimos', description: 'Desarrollamos la solución utilizando tecnología moderna.' },
+      { number: '04', title: 'Optimizamos', description: 'Probamos, mejoramos y aseguramos la calidad.' },
+      { number: '05', title: 'Acompañamos', description: 'Ofrecemos soporte y evolución continua.' },
+    ],
+  },
+  stats: {
+    title: 'FLO-Dev en números',
+    items: [
+      { value: '13', label: 'Servicios especializados' },
+      { value: '2', label: 'Países con presencia disponibles' },
+      { value: '100%', label: 'Enfoque personalizado' },
+      { value: '24/7', label: 'Disponibilidad de soporte' },
+    ],
+    disclaimer: 'Cifras de alcance y disponibilidad del servicio, actualizadas conforme evoluciona FLO-Dev.',
+  },
+  ctaSection: {
+    title: '¿Tienes una idea o un reto tecnológico?',
+    text: 'Conversemos y encontremos la mejor solución para tu negocio.',
+    button: 'Agendar una conversación',
+  },
+  servicesPage: {
+    eyebrow: 'SERVICIOS',
+    title: 'Soluciones digitales completas, de punta a punta.',
+    subtitle:
+      'Diseño, desarrollo, automatización, consultoría y soporte: todo lo que tu empresa necesita para operar con tecnología moderna.',
+    categories: {
+      diseno: 'Diseño',
+      desarrollo: 'Desarrollo',
+      automatizacion: 'Automatización',
+      consultoria: 'Consultoría',
+      soporte: 'Soporte',
+    },
+    benefitsLabel: 'Beneficios',
+    includesLabel: 'Qué incluye',
+    techLabel: 'Tecnologías posibles',
+    ctaLabel: 'Solicitar información',
+  },
+  solutionsPage: {
+    eyebrow: 'SOLUCIONES',
+    title: 'Identifica tu reto. Nosotros te mostramos el camino.',
+    subtitle: 'Cada negocio enfrenta problemas distintos. Estas son las soluciones que aplicamos con más frecuencia.',
+    solutionLabel: 'Solución',
+    items: [
+      {
+        problem: 'Tu negocio necesita presencia digital',
+        solution: 'Diseño y desarrollo web',
+        description: 'Construimos sitios modernos, rápidos y preparados para convertir visitantes en clientes.',
+      },
+      {
+        problem: 'Pierdes tiempo realizando tareas manuales',
+        solution: 'Automatización de procesos',
+        description: 'Conectamos tus herramientas y eliminamos tareas repetitivas.',
+      },
+      {
+        problem: 'La información está dispersa',
+        solution: 'CRM o ERP personalizado',
+        description: 'Centralizamos tus datos en una plataforma adaptada a tu operación.',
+      },
+      {
+        problem: 'Tus sistemas no se comunican',
+        solution: 'Integraciones y APIs',
+        description: 'Conectamos plataformas para que la información fluya sin fricción.',
+      },
+      {
+        problem: 'Necesitas orientación tecnológica',
+        solution: 'Consultoría y arquitectura tecnológica',
+        description: 'Te ayudamos a tomar mejores decisiones sobre tu stack y tu infraestructura.',
+      },
+      {
+        problem: 'Necesitas soporte para tu operación',
+        solution: 'Soporte técnico y Help Desk',
+        description: 'Acompañamos tu operación diaria y resolvemos incidencias con rapidez.',
+      },
+    ],
+    ctaTitle: '¿No encuentras tu problema en la lista?',
+    ctaText: 'Cuéntanos tu situación y te ayudamos a encontrar la solución adecuada.',
+    ctaButton: 'Conversemos',
+  },
+  aboutPage: {
+    eyebrow: 'SOBRE FLO-Dev',
+    title: 'Tecnología con propósito.',
+    intro:
+      'FLO-Dev es una agencia tecnológica enfocada en crear soluciones digitales modernas combinando diseño, tecnología, automatización, estrategia y soporte.',
+    founderRole: 'Fundador · Ingeniero en Sistemas',
+    founderBio:
+      'Apasionado por la tecnología y la creación de soluciones digitales que ayuden a las empresas a optimizar procesos, mejorar su presencia digital y aprovechar la tecnología de forma estratégica.',
+    missionTitle: 'Misión',
+    mission:
+      'Ayudar a las empresas a crecer a través de soluciones digitales bien diseñadas, funcionales y adaptadas a sus necesidades reales.',
+    visionTitle: 'Visión',
+    vision:
+      'Ser un referente en el diseño y desarrollo de soluciones digitales que combinan tecnología, estrategia y automatización para negocios de cualquier tamaño.',
+    valuesTitle: 'Valores',
+    values: [
+      { title: 'Innovación', description: 'Exploramos nuevas herramientas y enfoques para resolver mejor cada reto.' },
+      { title: 'Calidad', description: 'Cuidamos cada detalle del diseño y del código que entregamos.' },
+      { title: 'Transparencia', description: 'Comunicamos con claridad el estado y el alcance de cada proyecto.' },
+      { title: 'Compromiso', description: 'Nos involucramos con los objetivos reales de tu negocio.' },
+      { title: 'Mejora continua', description: 'Optimizamos procesos y soluciones de forma constante.' },
+      { title: 'Enfoque en resultados', description: 'Diseñamos y construimos pensando en el impacto para tu operación.' },
+    ],
+  },
+  projectsPage: {
+    eyebrow: 'PROYECTOS',
+    title: 'Casos de estudio',
+    subtitle: 'Un espacio para mostrar el trabajo real que construimos junto a nuestros clientes.',
+    comingSoonTitle: 'Próximamente nuevos casos de estudio',
+    comingSoonText:
+      'Estamos documentando nuestros primeros proyectos para compartirlos aquí con el detalle que merecen. Vuelve pronto.',
+    client: 'Cliente',
+    problem: 'Problema',
+    solution: 'Solución',
+    tech: 'Tecnologías',
+    results: 'Resultados',
+  },
+  blogPage: {
+    eyebrow: 'BLOG',
+    title: 'Insights de FLO-Dev',
+    subtitle: 'Ideas sobre tecnología, diseño, automatización y transformación digital.',
+    readingTime: 'min de lectura',
+    relatedTitle: 'Artículos relacionados',
+    backToBlog: 'Volver al blog',
+    empty: 'Muy pronto publicaremos aquí nuestros primeros artículos.',
+  },
+  contactPage: {
+    eyebrow: 'CONTACTO',
+    title: 'Hablemos sobre tu próximo proyecto.',
+    subtitle: 'Cuéntanos qué necesitas y te responderemos lo antes posible.',
+    form: {
+      name: 'Nombre',
+      email: 'Correo electrónico',
+      company: 'Empresa',
+      service: 'Servicio de interés',
+      servicePlaceholder: 'Selecciona un servicio',
+      budget: 'Presupuesto aproximado (opcional)',
+      budgetPlaceholder: 'Selecciona un rango',
+      message: 'Mensaje',
+      submit: 'Enviar mensaje',
+      submitting: 'Enviando...',
+      success: 'Gracias, hemos recibido tu mensaje. Te responderemos pronto.',
+      error: 'Ocurrió un error al enviar tu mensaje. Intenta nuevamente.',
+      requiredError: 'Este campo es obligatorio.',
+      emailError: 'Ingresa un correo electrónico válido.',
+    },
+    infoTitle: 'Otras formas de contactarnos',
+    infoText: 'También puedes escribirnos directamente por correo o WhatsApp.',
+  },
+  footer: {
+    tagline: 'Diseño, tecnología y soluciones digitales para impulsar tu negocio.',
+    navTitle: 'Navegación',
+    servicesTitle: 'Servicios principales',
+    contactTitle: 'Contacto',
+    rights: 'Todos los derechos reservados.',
+  },
+  common: {
+    goHome: 'Volver al inicio',
+    notFoundTitle: 'Página no encontrada',
+    notFoundText: 'La página que buscas no existe o fue movida.',
+  },
+};

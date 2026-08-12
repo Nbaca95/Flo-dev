@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+import { getDictionary } from '../../i18n/utils';
+import { estimateReadingMinutes } from '../../data/blogCategories';
+
+const t = getDictionary('es');
+const posts = (await getCollection('blog', ({ data }) => data.lang === 'es' && !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout locale="es" route="blog" title={t.nav.blog} description={t.blogPage.subtitle}>
+  <section class="pt-16 pb-6 sm:pt-20">
+    <div class="container-flo">
+      <SectionHeading eyebrow={t.blogPage.eyebrow} title={t.blogPage.title} subtitle={t.blogPage.subtitle} />
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16">
+    <div class="container-flo">
+      {posts.length > 0 ? (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <BlogCard
+              href={`/blog/${post.slug}`}
+              title={post.data.title}
+              description={post.data.description}
+              category={post.data.category}
+              locale="es"
+              date={post.data.publishDate}
+              readingMinutes={estimateReadingMinutes(post.body)}
+              readingTimeLabel={t.blogPage.readingTime}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-ink-700/60 dark:text-paper-200/50">{t.blogPage.empty}</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

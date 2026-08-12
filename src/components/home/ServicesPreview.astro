@@ -1,0 +1,53 @@
+---
+import { getDictionary } from '../../i18n/utils';
+import { localePath, type Locale } from '../../i18n/config';
+import { services } from '../../data/services';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const servicesPath = locale === 'en' ? 'services' : 'servicios';
+
+// Destacamos 6 de los 13 servicios en la home; el resto vive en la página de Servicios.
+const featured = services.slice(0, 6);
+---
+
+<section class="border-t border-paper-border py-20 dark:border-ink-border sm:py-28">
+  <div class="container-flo">
+    <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+      <SectionHeading
+        eyebrow={t.servicesPreview.eyebrow}
+        title={t.servicesPreview.title}
+        subtitle={t.servicesPreview.subtitle}
+      />
+      <Button href={localePath(locale, servicesPath)} variant="outline" class="hidden shrink-0 sm:inline-flex">
+        {t.servicesPreview.viewAll}
+        <Icon name="ArrowRight" class="h-4 w-4" />
+      </Button>
+    </div>
+
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {featured.map((service) => (
+        <ServiceCard
+          icon={service.icon}
+          title={service.title[locale]}
+          description={service.shortDescription[locale]}
+          categoryLabel={t.servicesPage.categories[service.category]}
+          href={localePath(locale, `${servicesPath}#${service.slug}`)}
+          ctaLabel={t.servicesPreview.learnMore}
+        />
+      ))}
+    </div>
+
+    <Button href={localePath(locale, servicesPath)} variant="outline" class="mt-10 flex w-full justify-center sm:hidden">
+      {t.servicesPreview.viewAll}
+      <Icon name="ArrowRight" class="h-4 w-4" />
+    </Button>
+  </div>
+</section>

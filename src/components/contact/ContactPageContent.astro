@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import ContactForm from '../../components/contact/ContactForm';
+import ContactInfo from '../../components/contact/ContactInfo.astro';
+import { getDictionary } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+import { services } from '../../data/services';
+
+interface Props {
+  locale: Locale;
+  route: string;
+}
+const { locale, route } = Astro.props;
+const t = getDictionary(locale);
+
+const serviceOptions = services.map((s) => ({ value: s.slug, label: s.title[locale] }));
+const budgetOptions =
+  locale === 'en'
+    ? ['Under $1,000', '$1,000 – $5,000', '$5,000 – $15,000', '$15,000+', "Let's discuss it"]
+    : ['Menos de $1,000', '$1,000 – $5,000', '$5,000 – $15,000', '$15,000+', 'Prefiero conversarlo'];
+---
+
+<BaseLayout locale={locale} route={route} title={t.nav.contact} description={t.contactPage.subtitle}>
+  <section class="py-16 sm:py-20">
+    <div class="container-flo">
+      <SectionHeading eyebrow={t.contactPage.eyebrow} title={t.contactPage.title} subtitle={t.contactPage.subtitle} align="center" />
+
+      <div class="mt-14 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+        <div class="rounded-2xl border border-paper-border bg-paper-50 p-7 dark:border-ink-border dark:bg-ink-800 sm:p-9">
+          <ContactForm
+            client:load
+            formLabels={t.contactPage.form}
+            serviceOptions={serviceOptions}
+            budgetOptions={budgetOptions}
+          />
+        </div>
+        <ContactInfo locale={locale} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppButton from '../components/global/WhatsAppButton.astro';
+import { getDictionary } from '../i18n/utils';
+import { buildAlternates, canonicalFor, SITE_URL } from '../utils/seo';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  route: string; // ruta neutra sin prefijo de idioma, ej: "servicios" o ""
+  title?: string;
+  description?: string;
+  noIndex?: boolean;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  locale,
+  route,
+  title,
+  description,
+  noIndex = false,
+  ogImage = '/images/brand/logo-dark-bg.png',
+  jsonLd = [],
+} = Astro.props;
+
+const t = getDictionary(locale);
+const pageTitle = title ? `${title} · ${t.meta.siteName}` : t.meta.defaultTitle;
+const pageDescription = description ?? t.meta.defaultDescription;
+const alternates = buildAlternates(route);
+const canonical = canonicalFor(locale, route);
+const ogLocale = locale === 'en' ? 'en_US' : 'es_ES';
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={alternates.es} />
+    <link rel="alternate" hreflang="en" href={alternates.en} />
+    <link rel="alternate" hreflang="x-default" href={alternates.es} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={t.meta.siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:image" content={`${SITE_URL}${ogImage}`} />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`${SITE_URL}${ogImage}`} />
+
+    {jsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    <script is:inline>
+      // Se ejecuta antes del primer render para evitar parpadeos de tema (FOUC).
+      (function () {
+        try {
+          var stored = localStorage.getItem('flo-de-theme');
+          var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (systemPrefersDark ? 'dark' : 'light');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary-600 focus:px-4 focus:py-2 focus:text-white"
+    >
+      {locale === 'en' ? 'Skip to main content' : 'Saltar al contenido principal'}
+    </a>
+    <Header locale={locale} route={route} />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <WhatsAppButton locale={locale} />
+  </body>
+</html>

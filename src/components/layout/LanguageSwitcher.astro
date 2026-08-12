@@ -1,0 +1,29 @@
+---
+import { LOCALES, LOCALE_LABELS, swapLocaleInPath, type Locale } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<div class="flex items-center rounded-full border border-paper-border bg-paper-50 p-1 text-sm dark:border-ink-border dark:bg-ink-800" role="group" aria-label="Idioma / Language">
+  {LOCALES.map((loc) => {
+    const isActive = loc === locale;
+    const href = swapLocaleInPath(currentPath, loc);
+    return (
+      <a
+        href={href}
+        aria-current={isActive ? 'true' : undefined}
+        class={`rounded-full px-2.5 py-1 font-mono text-xs font-medium transition-colors ${
+          isActive
+            ? 'bg-flo-gradient text-white'
+            : 'text-ink-700 hover:text-ink-900 dark:text-paper-200/70 dark:hover:text-paper-100'
+        }`}
+      >
+        {LOCALE_LABELS[loc]}
+      </a>
+    );
+  })}
+</div>

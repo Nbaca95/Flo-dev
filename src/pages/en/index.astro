@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/home/Hero.astro';
+import ValueProposition from '../../components/home/ValueProposition.astro';
+import ServicesPreview from '../../components/home/ServicesPreview.astro';
+import Process from '../../components/home/Process.astro';
+import Stats from '../../components/home/Stats.astro';
+import CTASection from '../../components/home/CTASection.astro';
+import { organizationSchema, professionalServiceSchema, websiteSchema } from '../../utils/schema';
+
+const jsonLd = [organizationSchema(), professionalServiceSchema(), websiteSchema()];
+---
+
+<BaseLayout locale="en" route="" jsonLd={jsonLd}>
+  <Hero locale="en" />
+  <ValueProposition locale="en" />
+  <ServicesPreview locale="en" />
+  <Process locale="en" />
+  <Stats locale="en" />
+  <CTASection locale="en" />
+</BaseLayout>

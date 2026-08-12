@@ -1,0 +1,57 @@
+---
+interface Props {
+  categories: Record<string, string>;
+  allLabel: string;
+}
+const { categories, allLabel } = Astro.props;
+const entries = Object.entries(categories);
+---
+
+<div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar servicios por categoría">
+  <button
+    type="button"
+    data-filter="all"
+    class="category-filter-btn is-active rounded-full border border-paper-border px-4 py-2 text-sm font-medium transition-colors dark:border-ink-border"
+  >
+    {allLabel}
+  </button>
+  {entries.map(([key, label]) => (
+    <button
+      type="button"
+      data-filter={key}
+      class="category-filter-btn rounded-full border border-paper-border px-4 py-2 text-sm font-medium transition-colors dark:border-ink-border"
+    >
+      {label}
+    </button>
+  ))}
+</div>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.category-filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.service-card');
+
+  function applyActiveStyles() {
+    buttons.forEach((btn) => {
+      const active = btn.classList.contains('is-active');
+      btn.classList.toggle('bg-flo-gradient', active);
+      btn.classList.toggle('text-white', active);
+      btn.classList.toggle('border-transparent', active);
+    });
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((b) => b.classList.remove('is-active'));
+      button.classList.add('is-active');
+      applyActiveStyles();
+
+      cards.forEach((card) => {
+        const matches = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !matches);
+      });
+    });
+  });
+
+  applyActiveStyles();
+</script>

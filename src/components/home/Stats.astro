@@ -1,0 +1,29 @@
+---
+import { getDictionary } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<section class="border-t border-paper-border bg-ink-900 py-16 dark:border-ink-border sm:py-20">
+  <div class="container-flo">
+    <h2 class="text-center font-display text-sm font-semibold uppercase tracking-[0.18em] text-paper-200/50">
+      {t.stats.title}
+    </h2>
+    <div class="mt-10 grid grid-cols-2 gap-8 lg:grid-cols-4">
+      {t.stats.items.map((stat) => (
+        <div class="text-center">
+          <p class="bg-flo-gradient bg-clip-text font-display text-4xl font-bold text-transparent sm:text-5xl">
+            {stat.value}
+          </p>
+          <p class="mt-2 text-sm text-paper-200/60">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mx-auto mt-10 max-w-lg text-center text-xs text-paper-200/40">{t.stats.disclaimer}</p>
+  </div>
+</section>

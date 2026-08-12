@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import ServiceDetailCard from '../../components/services/ServiceDetailCard.astro';
+import CategoryFilter from '../../components/services/CategoryFilter.astro';
+import CTASection from '../../components/home/CTASection.astro';
+import { getDictionary } from '../../i18n/utils';
+import { localePath, type Locale } from '../../i18n/config';
+import { services } from '../../data/services';
+
+interface Props {
+  locale: Locale;
+  route: string;
+}
+const { locale, route } = Astro.props;
+const t = getDictionary(locale);
+const contactPath = localePath(locale, locale === 'en' ? 'contact' : 'contacto');
+---
+
+<BaseLayout locale={locale} route={route} title={t.nav.services} description={t.servicesPage.subtitle}>
+  <section class="pt-16 pb-6 sm:pt-20">
+    <div class="container-flo">
+      <SectionHeading eyebrow={t.servicesPage.eyebrow} title={t.servicesPage.title} subtitle={t.servicesPage.subtitle} />
+      <div class="mt-10">
+        <CategoryFilter categories={t.servicesPage.categories} allLabel={locale === 'en' ? 'All' : 'Todos'} />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16">
+    <div class="container-flo grid gap-6 lg:grid-cols-2">
+      {services.map((service) => (
+        <ServiceDetailCard
+          id={service.slug}
+          category={service.category}
+          icon={service.icon}
+          title={service.title[locale]}
+          description={service.description[locale]}
+          categoryLabel={t.servicesPage.categories[service.category]}
+          benefits={service.benefits[locale]}
+          includes={service.includes[locale]}
+          technologies={service.technologies}
+          benefitsLabel={t.servicesPage.benefitsLabel}
+          includesLabel={t.servicesPage.includesLabel}
+          techLabel={t.servicesPage.techLabel}
+          ctaLabel={t.servicesPage.ctaLabel}
+          ctaHref={`${contactPath}?servicio=${service.slug}`}
+        />
+      ))}
+    </div>
+  </section>
+
+  <CTASection locale={locale} />
+</BaseLayout>

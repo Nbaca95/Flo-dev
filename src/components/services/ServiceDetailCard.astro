@@ -1,0 +1,94 @@
+---
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  id: string;
+  category: string;
+  icon: string;
+  title: string;
+  description: string;
+  categoryLabel: string;
+  benefits: string[];
+  includes: string[];
+  technologies: string[];
+  benefitsLabel: string;
+  includesLabel: string;
+  techLabel: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+const {
+  id,
+  category,
+  icon,
+  title,
+  description,
+  categoryLabel,
+  benefits,
+  includes,
+  technologies,
+  benefitsLabel,
+  includesLabel,
+  ctaLabel,
+  ctaHref,
+} = Astro.props;
+---
+
+<article
+  id={id}
+  data-category={category}
+  class="service-card scroll-mt-28 rounded-2xl border border-paper-border bg-paper-50 p-7 shadow-card dark:border-ink-border dark:bg-ink-800 dark:shadow-card-dark"
+>
+  <div class="flex items-start justify-between gap-4">
+    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-flo-gradient-soft text-accent-600 dark:text-accent-400">
+      <Icon name={icon} class="h-6 w-6" />
+    </div>
+    <span class="rounded-full border border-paper-border px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-ink-700/60 dark:border-ink-border dark:text-paper-200/50">
+      {categoryLabel}
+    </span>
+  </div>
+
+  <h3 class="mt-5 font-display text-xl font-semibold text-ink-900 dark:text-paper-100">{title}</h3>
+  <p class="mt-2 text-sm leading-relaxed text-ink-700/75 dark:text-paper-200/65">{description}</p>
+
+  <div class="mt-6 grid gap-5 sm:grid-cols-2">
+    <div>
+      <h4 class="text-xs font-semibold uppercase tracking-wide text-ink-700/50 dark:text-paper-200/40">{benefitsLabel}</h4>
+      <ul class="mt-3 space-y-2">
+        {benefits.map((b) => (
+          <li class="flex items-start gap-2 text-sm text-ink-700/80 dark:text-paper-200/70">
+            <Icon name="Check" class="mt-0.5 h-4 w-4 shrink-0 text-accent-500" />
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-semibold uppercase tracking-wide text-ink-700/50 dark:text-paper-200/40">{includesLabel}</h4>
+      <ul class="mt-3 space-y-2">
+        {includes.map((inc) => (
+          <li class="flex items-start gap-2 text-sm text-ink-700/80 dark:text-paper-200/70">
+            <Icon name="ChevronRight" class="mt-0.5 h-4 w-4 shrink-0 text-accent-500" />
+            <span>{inc}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-wrap gap-2">
+    {technologies.map((tech) => (
+      <span class="rounded-full bg-paper-200 px-2.5 py-1 text-xs text-ink-700/70 dark:bg-ink-700 dark:text-paper-200/60">
+        {tech}
+      </span>
+    ))}
+  </div>
+
+  <a
+    href={ctaHref}
+    class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent-600 hover:gap-2.5 dark:text-accent-400 transition-all"
+  >
+    {ctaLabel}
+    <Icon name="ArrowRight" class="h-4 w-4" />
+  </a>
+</article>

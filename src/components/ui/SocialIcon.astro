@@ -1,0 +1,12 @@
+---
+import { brandIcons } from '../../utils/icons';
+
+interface Props {
+  name: keyof typeof brandIcons | string;
+  class?: string;
+}
+const { name, class: className = 'h-4 w-4' } = Astro.props;
+const markup = brandIcons[name] ?? '';
+---
+
+<svg class={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={markup} />

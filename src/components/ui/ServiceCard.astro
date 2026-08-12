@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+  ctaLabel: string;
+  categoryLabel?: string;
+  class?: string;
+}
+const { icon, title, description, href, ctaLabel, categoryLabel, class: className = '' } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-paper-border bg-paper-50 p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-glow dark:border-ink-border dark:bg-ink-800 dark:shadow-card-dark ${className}`}
+>
+  <div class="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-flo-gradient opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-20"></div>
+
+  <div>
+    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-flo-gradient-soft text-accent-600 dark:text-accent-400">
+      <Icon name={icon} class="h-5 w-5" />
+    </div>
+    {categoryLabel && (
+      <span class="mb-2 block text-[11px] font-mono uppercase tracking-wider text-ink-700/50 dark:text-paper-200/40">
+        {categoryLabel}
+      </span>
+    )}
+    <h3 class="font-display text-lg font-semibold text-ink-900 dark:text-paper-100">{title}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-ink-700/75 dark:text-paper-200/65">{description}</p>
+  </div>
+
+  <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent-600 dark:text-accent-400">
+    {ctaLabel}
+    <Icon name="ArrowRight" class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+  </span>
+</a>

@@ -1,0 +1,29 @@
+---
+import { company } from '../../data/company';
+import type { Locale } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+  roleLabel: string;
+  bio: string;
+}
+const { roleLabel, bio } = Astro.props;
+---
+
+<div class="grid gap-10 rounded-[2rem] border border-paper-border bg-paper-50 p-6 dark:border-ink-border dark:bg-ink-800 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+  <div class="relative mx-auto w-full max-w-xs overflow-hidden rounded-2xl">
+    <div class="absolute inset-0 bg-flo-gradient opacity-20"></div>
+    <img
+      src={company.founder.photo}
+      alt={company.founder.name}
+      class="relative h-full w-full object-cover"
+      width="640"
+      height="850"
+    />
+  </div>
+  <div>
+    <h3 class="font-display text-2xl font-bold text-ink-900 dark:text-paper-100">{company.founder.name}</h3>
+    <p class="eyebrow mt-2">{roleLabel}</p>
+    <p class="mt-5 max-w-xl leading-relaxed text-ink-700/80 dark:text-paper-200/70">{bio}</p>
+  </div>
+</div>
