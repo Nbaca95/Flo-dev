@@ -6,17 +6,16 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://flo-de.com',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),
-    sitemap({
-      i18n: {
-        defaultLocale: 'es',
-        locales: {
-          es: 'es-ES',
-          en: 'en-US',
-        },
-      },
-    }),
+    sitemap(),
   ],
 });
