@@ -2,10 +2,10 @@ import type { Dictionary } from '../types';
 
 export const es: Dictionary = {
   meta: {
-    siteName: 'FLO-De',
-    defaultTitle: 'FLO-De — Diseño, tecnología y soluciones digitales',
+    siteName: 'FLO-Dev',
+    defaultTitle: 'FLO-Dev — Desarrollo Web, Software a Medida y Soluciones Digitales',
     defaultDescription:
-      'Diseñamos experiencias digitales, desarrollamos productos tecnológicos, automatizamos procesos y ofrecemos soluciones adaptadas a las necesidades de tu empresa.',
+      'Agencia de desarrollo web, software a medida y automatización de procesos en Costa Rica. Transformamos tu negocio con tecnología moderna.',
   },
   nav: {
     home: 'Inicio',
@@ -25,13 +25,13 @@ export const es: Dictionary = {
   },
   whatsapp: {
     label: '¿Cómo puedo ayudarte?',
-    ariaLabel: 'Escribir por WhatsApp a FLO-De',
+    ariaLabel: 'Escribir por WhatsApp a FLO-Dev',
     message: 'Hola, me gustaría obtener más información sobre los servicios de FLO-Dev.',
   },
   hero: {
-    eyebrow: 'SOLUCIONES DIGITALES · DISEÑO · TECNOLOGÍA',
-    title: 'Transformamos ideas en soluciones digitales que impulsan tu negocio.',
-    text: 'Diseñamos experiencias digitales, desarrollamos productos tecnológicos, automatizamos procesos y ofrecemos soluciones adaptadas a las necesidades de tu empresa.',
+    eyebrow: 'UI/UX · AUTOMATIZACIÓN · ESTRATEGIA · CONSULTORÍA',
+    title: 'Diseño, desarrollo web y software a la medida.',
+    text: 'Transformamos ideas en soluciones digitales, creando páginas web profesionales, sistemas escalables y automatizando procesos para potenciar la operación de tu empresa.',
     ctaPrimary: 'Conversemos',
     ctaSecondary: 'Explorar servicios',
     badge: 'Disponibles para nuevos proyectos',
@@ -220,7 +220,7 @@ export const es: Dictionary = {
     infoText: 'También puedes escribirnos directamente por correo o WhatsApp.',
   },
   footer: {
-    tagline: 'Diseño, tecnología y soluciones digitales para impulsar tu negocio.',
+    tagline: 'Desarrollo web, software a medida y soluciones digitales para impulsar tu negocio.',
     navTitle: 'Navegación',
     servicesTitle: 'Servicios principales',
     contactTitle: 'Contacto',

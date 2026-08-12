@@ -2,10 +2,10 @@ import type { Dictionary } from '../types';
 
 export const en: Dictionary = {
   meta: {
-    siteName: 'FLO-De',
-    defaultTitle: 'FLO-De — Design, technology and digital solutions',
+    siteName: 'FLO-Dev',
+    defaultTitle: 'FLO-Dev — Web Development, Custom Software & Digital Solutions',
     defaultDescription:
-      'We design digital experiences, build technology products, automate processes and create solutions tailored to your business.',
+      'Web development agency, custom software, and process automation. We scale your business with modern technology.',
   },
   nav: {
     home: 'Home',
@@ -25,13 +25,13 @@ export const en: Dictionary = {
   },
   whatsapp: {
     label: 'How can I help you?',
-    ariaLabel: 'Message FLO-De on WhatsApp',
+    ariaLabel: 'Message FLO-Dev on WhatsApp',
     message: 'Hello, I would like to get more information about FLO-Dev services.',
   },
   hero: {
-    eyebrow: 'DIGITAL SOLUTIONS · DESIGN · TECHNOLOGY',
-    title: 'We turn ideas into digital solutions that move your business forward.',
-    text: 'We design digital experiences, build technology products, automate processes and create solutions tailored to your business.',
+    eyebrow: 'UI/UX · AUTOMATION · STRATEGY · CONSULTING',
+    title: 'Design, web development and custom software.',
+    text: 'We transform ideas into digital solutions, building professional websites, scalable systems, and automating processes to supercharge your operations.',
     ctaPrimary: "Let's Talk",
     ctaSecondary: 'Explore Services',
     badge: 'Available for new projects',
@@ -150,10 +150,10 @@ export const en: Dictionary = {
     ctaButton: "Let's Talk",
   },
   aboutPage: {
-    eyebrow: 'ABOUT FLO-De',
+    eyebrow: 'ABOUT FLO-Dev',
     title: 'Technology with purpose.',
     intro:
-      'FLO-De is a technology agency focused on building modern digital solutions by combining design, technology, automation, strategy and support.',
+      'FLO-Dev is a technology agency focused on building modern digital solutions by combining design, technology, automation, strategy and support.',
     founderRole: 'Founder · Systems Engineer',
     founderBio:
       'Passionate about technology and building digital solutions that help companies streamline processes, improve their digital presence and use technology strategically.',
@@ -218,7 +218,7 @@ export const en: Dictionary = {
     infoText: 'You can also write to us directly by email or WhatsApp.',
   },
   footer: {
-    tagline: 'Design, technology and digital solutions to move your business forward.',
+    tagline: 'Web development, custom software and digital solutions to move your business forward.',
     navTitle: 'Navigation',
     servicesTitle: 'Main services',
     contactTitle: 'Contact',
