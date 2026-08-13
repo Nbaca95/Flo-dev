@@ -33,17 +33,22 @@ const currentPath = Astro.url.pathname;
     class="border-b border-paper-border/70 bg-paper-100/80 backdrop-blur-md transition-colors dark:border-ink-border dark:bg-ink-900/80"
   >
     <nav class="container-flo flex h-18 items-center justify-between" aria-label="Principal">
-      <a href={localePath(locale, '')} class="group flex items-center gap-2" aria-label={company.name}>
+      <!-- Logo + Nombre con efecto Shimmer y grupo para activar hover -->
+      <a href={localePath(locale, '')} class="group flex items-center gap-2.5 text-h5 font-bold tracking-tight" aria-label={company.name}>
         <img
           src={company.logos.dark}
           alt={company.name}
-          class="hidden h-12 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:block sm:h-14"
+          class="hidden h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 dark:block sm:h-14"
         />
         <img
           src={company.logos.light}
           alt={company.name}
-          class="block h-12 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:hidden sm:h-14"
+          class="block h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 dark:hidden sm:h-14"
         />
+        <!-- Texto con efecto moderno de brillo (Shimmer/Gradient) -->
+        <span class="relative overflow-hidden bg-gradient-to-r from-ink-900 via-accent-500 to-ink-900 bg-[length:200%_auto] bg-clip-text text-transparent transition-all duration-500 group-hover:animate-shimmer dark:from-paper-150 dark:via-accent-400 dark:to-paper-150">
+          {company.name}
+        </span>
       </a>
 
       <div class="hidden items-center gap-1 lg:flex">
@@ -111,6 +116,22 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 </header>
+
+<style>
+  /* Animación de brillo fluido tipo Shimmer para el texto del header */
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .group:hover .group-hover\:animate-shimmer {
+    animation: shimmer 2.5s linear infinite;
+  }
+</style>
 
 <script>
   const menuButton = document.getElementById('mobile-menu-button');
