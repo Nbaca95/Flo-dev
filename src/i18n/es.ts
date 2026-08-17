@@ -2,16 +2,16 @@ import type { Dictionary } from '../types';
 
 export const es: Dictionary = {
   meta: {
-    siteName: 'FLO-Dev',
-    defaultTitle: 'FLO-Dev — Desarrollo Web, Software a Medida y Soluciones Digitales',
+    siteName: 'FLO-De',
+    defaultTitle: 'FLO-De — Diseño, tecnología y soluciones digitales',
     defaultDescription:
-      'Agencia de desarrollo web, software a medida y automatización de procesos en Costa Rica. Transformamos tu negocio con tecnología moderna.',
+      'Diseñamos experiencias digitales, desarrollamos productos tecnológicos, automatizamos procesos y ofrecemos soluciones adaptadas a las necesidades de tu empresa.',
   },
   nav: {
     home: 'Inicio',
     services: 'Servicios',
     solutions: 'Soluciones',
-    about: 'Sobre FLO-Dev',
+    about: 'Sobre FLO-De',
     projects: 'Proyectos',
     blog: 'Blog',
     contact: 'Contacto',
@@ -25,13 +25,13 @@ export const es: Dictionary = {
   },
   whatsapp: {
     label: '¿Cómo puedo ayudarte?',
-    ariaLabel: 'Escribir por WhatsApp a FLO-Dev',
-    message: 'Hola, me gustaría obtener más información sobre los servicios de FLO-Dev.',
+    ariaLabel: 'Escribir por WhatsApp a FLO-De',
+    message: 'Hola, me gustaría obtener más información sobre los servicios de FLO-De.',
   },
   hero: {
-    eyebrow: 'UI/UX · AUTOMATIZACIÓN · ESTRATEGIA · CONSULTORÍA',
-    title: 'Diseño, desarrollo web y software a la medida.',
-    text: 'Transformamos ideas en soluciones digitales, creando páginas web profesionales, sistemas escalables y automatizando procesos para potenciar la operación de tu empresa.',
+    eyebrow: 'SOLUCIONES DIGITALES · DISEÑO · TECNOLOGÍA',
+    title: 'Transformamos ideas en soluciones digitales que impulsan tu negocio.',
+    text: 'Diseñamos experiencias digitales, desarrollamos productos tecnológicos, automatizamos procesos y ofrecemos soluciones adaptadas a las necesidades de tu empresa.',
     ctaPrimary: 'Conversemos',
     ctaSecondary: 'Explorar servicios',
     badge: 'Disponibles para nuevos proyectos',
@@ -78,14 +78,14 @@ export const es: Dictionary = {
     ],
   },
   stats: {
-    title: 'FLO-Dev en números',
+    title: 'FLO-De en números',
     items: [
       { value: '13', label: 'Servicios especializados' },
-      { value: '2', label: 'Países con presencia disponibles' },
+      { value: '2', label: 'Idiomas disponibles' },
       { value: '100%', label: 'Enfoque personalizado' },
       { value: '24/7', label: 'Disponibilidad de soporte' },
     ],
-    disclaimer: 'Cifras de alcance y disponibilidad del servicio, actualizadas conforme evoluciona FLO-Dev.',
+    disclaimer: 'Cifras de alcance y disponibilidad del servicio, actualizadas conforme evoluciona FLO-De.',
   },
   ctaSection: {
     title: '¿Tienes una idea o un reto tecnológico?',
@@ -151,10 +151,10 @@ export const es: Dictionary = {
     ctaButton: 'Conversemos',
   },
   aboutPage: {
-    eyebrow: 'SOBRE FLO-Dev',
+    eyebrow: 'SOBRE FLO-De',
     title: 'Tecnología con propósito.',
     intro:
-      'FLO-Dev es una agencia tecnológica enfocada en crear soluciones digitales modernas combinando diseño, tecnología, automatización, estrategia y soporte.',
+      'FLO-De es una agencia tecnológica enfocada en crear soluciones digitales modernas combinando diseño, tecnología, automatización, estrategia y soporte.',
     founderRole: 'Fundador · Ingeniero en Sistemas',
     founderBio:
       'Apasionado por la tecnología y la creación de soluciones digitales que ayuden a las empresas a optimizar procesos, mejorar su presencia digital y aprovechar la tecnología de forma estratégica.',
@@ -165,6 +165,7 @@ export const es: Dictionary = {
     vision:
       'Ser un referente en el diseño y desarrollo de soluciones digitales que combinan tecnología, estrategia y automatización para negocios de cualquier tamaño.',
     valuesTitle: 'Valores',
+    valuesSubtitle: 'Los principios que guían cada decisión y cada relación que construimos.',
     values: [
       { title: 'Innovación', description: 'Exploramos nuevas herramientas y enfoques para resolver mejor cada reto.' },
       { title: 'Calidad', description: 'Cuidamos cada detalle del diseño y del código que entregamos.' },
@@ -173,6 +174,9 @@ export const es: Dictionary = {
       { title: 'Mejora continua', description: 'Optimizamos procesos y soluciones de forma constante.' },
       { title: 'Enfoque en resultados', description: 'Diseñamos y construimos pensando en el impacto para tu operación.' },
     ],
+    policiesTitle: 'Nuestras Políticas',
+    policiesSubtitle: 'Normativas y políticas que guían nuestra actuación',
+    comingSoon: 'Próximamente',
   },
   projectsPage: {
     eyebrow: 'PROYECTOS',
@@ -189,7 +193,7 @@ export const es: Dictionary = {
   },
   blogPage: {
     eyebrow: 'BLOG',
-    title: 'Insights de FLO-Dev',
+    title: 'Insights de FLO-De',
     subtitle: 'Ideas sobre tecnología, diseño, automatización y transformación digital.',
     readingTime: 'min de lectura',
     relatedTitle: 'Artículos relacionados',
@@ -220,9 +224,10 @@ export const es: Dictionary = {
     infoText: 'También puedes escribirnos directamente por correo o WhatsApp.',
   },
   footer: {
-    tagline: 'Desarrollo web, software a medida y soluciones digitales para impulsar tu negocio.',
+    tagline: 'Diseño, tecnología y soluciones digitales para impulsar tu negocio.',
     navTitle: 'Navegación',
     servicesTitle: 'Servicios principales',
+    mainServicesList: ['Diseño estratégico', 'Desarrollo Web', 'Automatización', 'Consultoría', 'Soporte Técnico'],
     contactTitle: 'Contacto',
     rights: 'Todos los derechos reservados.',
   },

@@ -27,13 +27,12 @@ export const company: CompanyInfo = {
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.979771146738!2d-84.09355249017193!3d9.935640874099482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e38e821b12d9%3A0x29f32212706035e0!2sT%26TA%20de%20Centroamerica!5e0!3m2!1ses!2scr!4v1786482366285!5m2!1ses!2scr',
   },
   social: {
-    // Deja el enlace vacío ('') para que el ícono correspondiente no se muestre en el footer.
-    instagram: '',
-    facebook: '',
-    twitter: '',
-    tiktok: '',
-    linkedin: '',
-  },
+  instagram: 'https://instagram.com/tu_usuario',
+  facebook: 'https://facebook.com/tu_pagina',
+  twitter: 'https://x.com/tu_usuario',
+  tiktok: 'https://tiktok.com/@tu_usuario',
+  linkedin: 'https://linkedin.com/company/tu_empresa',
+},
   logos: {
     light: '/images/brand/logo-light-bg.png',
     dark: '/images/brand/logo-dark-bg.png',

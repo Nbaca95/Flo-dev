@@ -1,0 +1,48 @@
+---
+import { policies } from '../../data/policies';
+import type { Locale } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  subtitle: string;
+  comingSoonLabel: string;
+}
+const { locale, title, subtitle, comingSoonLabel } = Astro.props;
+---
+
+<div class="rounded-[2rem] border border-paper-border bg-paper-50 px-6 py-14 text-center dark:border-ink-border dark:bg-ink-800 sm:px-10">
+  <h3 class="font-display text-2xl font-bold text-ink-900 dark:text-paper-100">{title}</h3>
+  <p class="mx-auto mt-2 max-w-md text-sm text-ink-700/70 dark:text-paper-200/60">{subtitle}</p>
+
+  <div class="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+    {policies.map((policy) => {
+      const isAvailable = Boolean(policy.url);
+      const Wrapper = isAvailable ? 'a' : 'div';
+      return (
+        <Wrapper
+          href={isAvailable ? policy.url : undefined}
+          target={isAvailable ? '_blank' : undefined}
+          rel={isAvailable ? 'noopener noreferrer' : undefined}
+          class={`group flex flex-col items-center gap-3 ${isAvailable ? '' : 'cursor-default'}`}
+        >
+          <span
+            class={`flex h-16 w-16 items-center justify-center rounded-full border text-2xl transition-all duration-300 ${
+              isAvailable
+                ? 'border-accent-500/40 group-hover:-translate-y-1 group-hover:-rotate-6 group-hover:scale-110 group-hover:border-accent-500 group-hover:bg-flo-gradient-soft group-hover:shadow-glow'
+                : 'border-paper-border opacity-40 grayscale dark:border-ink-border'
+            }`}
+          >
+            {policy.icon}
+          </span>
+          <span class="text-sm font-medium text-ink-900 dark:text-paper-100">{policy.label[locale]}</span>
+          {!isAvailable && (
+            <span class="-mt-2 font-mono text-[10px] uppercase tracking-wider text-ink-700/40 dark:text-paper-200/35">
+              {comingSoonLabel}
+            </span>
+          )}
+        </Wrapper>
+      );
+    })}
+  </div>
+</div>

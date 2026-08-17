@@ -97,7 +97,11 @@ export interface Dictionary {
     visionTitle: string;
     vision: string;
     valuesTitle: string;
+    valuesSubtitle: string;
     values: { title: string; description: string }[];
+    policiesTitle: string;
+    policiesSubtitle: string;
+    comingSoon: string;
   };
   projectsPage: {
     eyebrow: string;
@@ -147,6 +151,7 @@ export interface Dictionary {
     tagline: string;
     navTitle: string;
     servicesTitle: string;
+    mainServicesList: string[];
     contactTitle: string;
     rights: string;
   };
@@ -201,6 +206,14 @@ export interface Service {
   benefits: { es: string[]; en: string[] };
   includes: { es: string[]; en: string[] };
   technologies: string[];
+}
+
+export interface PolicyItem {
+  slug: string;
+  icon: string;
+  label: { es: string; en: string };
+  /** URL del documento real. Se deja sin definir hasta tener el documento disponible. */
+  url?: string;
 }
 
 export interface Project {

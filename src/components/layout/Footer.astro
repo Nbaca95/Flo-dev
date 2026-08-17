@@ -22,14 +22,6 @@ const navItems = [
   { label: t.nav.contact, href: localePath(locale, locale === 'en' ? 'contact' : 'contacto') },
 ];
 
-const mainServices = [
-  t.valueProposition.pillars[0]?.title,
-  'Desarrollo Web',
-  'Automatización',
-  'Consultoría',
-  'Soporte Técnico',
-];
-
 const socialLinks = [
   { name: 'Instagram', url: company.social.instagram, label: 'Instagram' },
   { name: 'Facebook', url: company.social.facebook, label: 'Facebook' },
@@ -37,6 +29,17 @@ const socialLinks = [
   { name: 'TikTok', url: company.social.tiktok, label: 'TikTok' },
   { name: 'LinkedIn', url: company.social.linkedin, label: 'LinkedIn' },
 ].filter((s) => s.url);
+
+// Efecto hover con el color de marca de cada red, más elevación y escala.
+const socialHoverStyles: Record<string, string> = {
+  Instagram:
+    'hover:border-transparent hover:bg-gradient-to-tr hover:from-[#FEDA75] hover:via-[#D62976] hover:to-[#4F5BD5] hover:text-white',
+  Facebook: 'hover:border-transparent hover:bg-[#1877F2] hover:text-white',
+  X: 'hover:border-transparent hover:bg-black hover:text-white',
+  TikTok:
+    'hover:border-transparent hover:bg-gradient-to-tr hover:from-[#25F4EE] hover:via-black hover:to-[#FE2C55] hover:text-white',
+  LinkedIn: 'hover:border-transparent hover:bg-[#0A66C2] hover:text-white',
+};
 ---
 
 <footer class="border-t border-paper-border bg-paper-50 dark:border-ink-border dark:bg-ink-800">
@@ -46,12 +49,12 @@ const socialLinks = [
         <img
           src={company.logos.dark}
           alt={company.name}
-          class="hidden h-14 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:block sm:h-16"
+          class="hidden h-16 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:block sm:h-20"
         />
         <img
           src={company.logos.light}
           alt={company.name}
-          class="block h-14 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:hidden sm:h-16"
+          class="block h-16 w-auto object-contain transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110 dark:hidden sm:h-20"
         />
       </a>
       <p class="mt-4 max-w-xs text-sm leading-relaxed text-ink-700/70 dark:text-paper-200/60">
@@ -66,7 +69,9 @@ const socialLinks = [
               rel="noopener noreferrer"
               aria-label={social.label}
               title={social.label}
-              class="flex h-9 w-9 items-center justify-center rounded-full border border-paper-border text-ink-700/70 transition-colors hover:border-accent-500 hover:text-accent-600 dark:border-ink-border dark:text-paper-200/60 dark:hover:border-accent-400 dark:hover:text-accent-400"
+              class={`flex h-9 w-9 items-center justify-center rounded-full border border-paper-border text-ink-700/70 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-lg dark:border-ink-border dark:text-paper-200/60 ${
+                socialHoverStyles[social.name] ?? 'hover:border-accent-500 hover:text-accent-600 dark:hover:border-accent-400 dark:hover:text-accent-400'
+              }`}
             >
               <SocialIcon name={social.name} class="h-4 w-4" />
             </a>
@@ -91,7 +96,7 @@ const socialLinks = [
     <div>
       <h3 class="text-sm font-semibold text-ink-900 dark:text-paper-100">{t.footer.servicesTitle}</h3>
       <ul class="mt-4 space-y-2.5">
-        {mainServices.map((service) => (
+        {t.footer.mainServicesList.map((service) => (
           <li class="text-sm text-ink-700/70 dark:text-paper-200/60">{service}</li>
         ))}
       </ul>
@@ -106,11 +111,6 @@ const socialLinks = [
             {company.contact.email}
           </a>
         </li>
-        {/*
-        <li class="flex items-center gap-2 text-sm text-ink-700/70 dark:text-paper-200/60">
-          <Icon name="Globe" class="h-4 w-4 shrink-0" />
-          <span>{company.domain}</span>
-        </li> */} 
       </ul>
     </div>
   </div>

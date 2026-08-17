@@ -2,16 +2,16 @@ import type { Dictionary } from '../types';
 
 export const en: Dictionary = {
   meta: {
-    siteName: 'FLO-Dev',
-    defaultTitle: 'FLO-Dev — Web Development, Custom Software & Digital Solutions',
+    siteName: 'FLO-De',
+    defaultTitle: 'FLO-De — Design, technology and digital solutions',
     defaultDescription:
-      'Web development agency, custom software, and process automation. We scale your business with modern technology.',
+      'We design digital experiences, build technology products, automate processes and create solutions tailored to your business.',
   },
   nav: {
     home: 'Home',
     services: 'Services',
     solutions: 'Solutions',
-    about: 'About FLO-Dev',
+    about: 'About FLO-De',
     projects: 'Projects',
     blog: 'Blog',
     contact: 'Contact',
@@ -25,13 +25,13 @@ export const en: Dictionary = {
   },
   whatsapp: {
     label: 'How can I help you?',
-    ariaLabel: 'Message FLO-Dev on WhatsApp',
-    message: 'Hello, I would like to get more information about FLO-Dev services.',
+    ariaLabel: 'Message FLO-De on WhatsApp',
+    message: 'Hello, I would like to get more information about FLO-De services.',
   },
   hero: {
-    eyebrow: 'UI/UX · AUTOMATION · STRATEGY · CONSULTING',
-    title: 'Design, web development and custom software.',
-    text: 'We transform ideas into digital solutions, building professional websites, scalable systems, and automating processes to supercharge your operations.',
+    eyebrow: 'DIGITAL SOLUTIONS · DESIGN · TECHNOLOGY',
+    title: 'We turn ideas into digital solutions that move your business forward.',
+    text: 'We design digital experiences, build technology products, automate processes and create solutions tailored to your business.',
     ctaPrimary: "Let's Talk",
     ctaSecondary: 'Explore Services',
     badge: 'Available for new projects',
@@ -78,14 +78,14 @@ export const en: Dictionary = {
     ],
   },
   stats: {
-    title: 'FLO-Dev by the numbers',
+    title: 'FLO-De by the numbers',
     items: [
       { value: '13', label: 'Specialized services' },
-      { value: '2', label: 'Countries where we operate' },
+      { value: '2', label: 'Languages available' },
       { value: '100%', label: 'Personalized approach' },
       { value: '24/7', label: 'Support availability' },
     ],
-    disclaimer: 'Figures describe service scope and availability, updated as FLO-Dev grows.',
+    disclaimer: 'Figures describe service scope and availability, updated as FLO-De grows.',
   },
   ctaSection: {
     title: 'Do you have an idea or a technology challenge?',
@@ -150,10 +150,10 @@ export const en: Dictionary = {
     ctaButton: "Let's Talk",
   },
   aboutPage: {
-    eyebrow: 'ABOUT FLO-Dev',
+    eyebrow: 'ABOUT FLO-De',
     title: 'Technology with purpose.',
     intro:
-      'FLO-Dev is a technology agency focused on building modern digital solutions by combining design, technology, automation, strategy and support.',
+      'FLO-De is a technology agency focused on building modern digital solutions by combining design, technology, automation, strategy and support.',
     founderRole: 'Founder · Systems Engineer',
     founderBio:
       'Passionate about technology and building digital solutions that help companies streamline processes, improve their digital presence and use technology strategically.',
@@ -164,6 +164,7 @@ export const en: Dictionary = {
     vision:
       'To be a reference in designing and building digital solutions that combine technology, strategy and automation for businesses of any size.',
     valuesTitle: 'Values',
+    valuesSubtitle: 'The principles that guide every decision and every relationship we build.',
     values: [
       { title: 'Innovation', description: 'We explore new tools and approaches to solve every challenge better.' },
       { title: 'Quality', description: 'We care about every detail of the design and code we deliver.' },
@@ -172,6 +173,9 @@ export const en: Dictionary = {
       { title: 'Continuous improvement', description: 'We constantly optimize processes and solutions.' },
       { title: 'Results focus', description: 'We design and build with your operation in mind.' },
     ],
+    policiesTitle: 'Our Policies',
+    policiesSubtitle: 'Standards and policies that guide how we operate',
+    comingSoon: 'Coming soon',
   },
   projectsPage: {
     eyebrow: 'PROJECTS',
@@ -187,7 +191,7 @@ export const en: Dictionary = {
   },
   blogPage: {
     eyebrow: 'BLOG',
-    title: 'FLO-Dev Insights',
+    title: 'FLO-De Insights',
     subtitle: 'Ideas on technology, design, automation and digital transformation.',
     readingTime: 'min read',
     relatedTitle: 'Related articles',
@@ -218,9 +222,10 @@ export const en: Dictionary = {
     infoText: 'You can also write to us directly by email or WhatsApp.',
   },
   footer: {
-    tagline: 'Web development, custom software and digital solutions to move your business forward.',
+    tagline: 'Design, technology and digital solutions to move your business forward.',
     navTitle: 'Navigation',
     servicesTitle: 'Main services',
+    mainServicesList: ['Strategic Design', 'Web Development', 'Automation', 'Consulting', 'Technical Support'],
     contactTitle: 'Contact',
     rights: 'All rights reserved.',
   },
